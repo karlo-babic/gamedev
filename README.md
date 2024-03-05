@@ -3,11 +3,7 @@
 >"Hello and, again, welcome to the Aperture Science computer-aided enrichment center."  
 >\- GLaDOS
 
-- In this course, we will build a 3D top-down shooter, inspired by Valve's Alien Swarm:
-
-<div align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8ob7Y6spUW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
+- In this course, we will build a 3D top-down shooter, inspired by Valve's Alien Swarm: [video](https://www.youtube.com/watch?v=8ob7Y6spUW8).
 
 Overview of the course: [Contents](job/Gamedev/Contents.md).  
 Start with the instructions for installation: [Software](job/Gamedev/Software.md).  
