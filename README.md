@@ -5,8 +5,8 @@
 
 - In this course, we will build a 3D top-down shooter, inspired by Valve's Alien Swarm: [video](https://www.youtube.com/watch?v=8ob7Y6spUW8).
 
-Overview of the course: [Contents](job/Gamedev/Contents.md).  
-Start with the instructions for installation: [Software](job/Gamedev/Software.md).  
+Overview of the course: [Contents](Contents.md).  
+Start with the instructions for installation: [Software](Software.md).  
 After the software setup, continue with [1. Unity Interface](1-Init.md).
 
 ## Literature
