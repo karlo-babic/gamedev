@@ -1,6 +1,6 @@
 # Contents
 
-- [Intro](job/Gamedev/README.md)
-- [Software](job/Gamedev/Software.md)
+- [Intro](README.md)
+- [Software](Software.md)
 
 1. [Init](1-Init.md)
