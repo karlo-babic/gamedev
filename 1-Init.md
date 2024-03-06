@@ -31,7 +31,7 @@
 - Drag and drop the script into the Inspector window for the Player (adding the Player Controller component to that GameObject).
 - Double click on the script to open it in the editor. Paste the following code:
 
-```c#
+```C#
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 ```
 
 - Save the script and wait for Unity to reload it.
-- The moveSpeed variable will be visible in the inspector as a property (in the Player Movement component in Player) because it is set as public.
+- The moveSpeed variable will be visible in the inspector as a property (in the Player Controller component in Player GameObject) because it is set as public.
 - You should now be able to move the player using the WASD and/or arrow keys.
 
 ---
