@@ -7,7 +7,7 @@
 
 Overview of the course: [Contents](Contents.md).  
 Start with the instructions for installation: [Software](Software.md).  
-After the software setup, continue with [1. Unity Interface](1-Init.md).
+After the software setup, continue with [1. Init](1-Init.md).
 
 ## Literature
 - [Unity Manual](https://docs.unity3d.com/2021.3/Documentation/Manual/UnityManual.html)
