@@ -31,7 +31,7 @@
 - Drag and drop the script into the Inspector window for the Player (adding the Player Controller component to that GameObject).
 - Double click on the script to open it in the editor. Paste the following code:
 
-```C#
+```c#
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
