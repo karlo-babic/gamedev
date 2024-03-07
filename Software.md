@@ -1,7 +1,8 @@
 # Software
 
 ## Unity
-- [Download Unity version 2021.3.18f1](https://unity.com/releases/editor/whats-new/2021.3.18)
+- [Unity Hub](https://unity.com/download)
+- [Unity Editor version 2021.3.18f1](https://unity.com/releases/editor/whats-new/2021.3.18)
 
 ---
 
