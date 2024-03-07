@@ -59,6 +59,14 @@ public class PlayerController : MonoBehaviour
 - The moveSpeed variable will be visible in the inspector as a property (in the Player Controller component in Player GameObject) because it is set as public.
 - You should now be able to move the player using the WASD and/or arrow keys.
 
+## Build the project
+- To build the project:
+    - Click on File > Build Settings > Add Open Scenes > Build
+    - Execute the exe to run the game.
+    - Alt-f4 to exit the game.
+- The entire project is a few hundred megabytes, but most of the memory is taken up by the Library folder.
+    - To reduce the project size you can delete the Library folder (Unity will rebuild that folder once the project is opened again).
+
 ---
 
 <div align="center"><b>
