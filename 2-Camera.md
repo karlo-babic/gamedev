@@ -223,7 +223,7 @@ public class CameraMovement : MonoBehaviour
     - Choose the "top-right" option from the Anchor Presets.
     - Set Pos X and Pos Y to -50.
 
-- Final state:
+Final state:
 ![](https://i.imgur.com/CLJpOcD.png)
 *The floor is larger and I added a few 3D objects (a cube and a sphere).*
 
