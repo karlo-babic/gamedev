@@ -23,7 +23,7 @@
         - Both the Player and the floor need colliders to prevent the player from passing through the floor. They should already have them (Capsule has a collider by default, as does the Plane).
     - Click on the play button to start the game.
         - The player should fall to the floor and collide with it.
-    - To prevent the capsule from falling over upon collision, select the Player GameObject, go to the Inspector, expand Constraints, and select Freeze Rotation for the X and Z axes.
+    - To prevent the capsule from falling over upon collision, select the Player GameObject, go to the Inspector, expand Constraints, and select Freeze Rotation for the X, Y, and Z axes.
 
 ## Player initial controller (movement)
 - In the Project window, right-click on the Assets folder and create a new folder named "Scripts".
@@ -64,6 +64,9 @@ public class PlayerController : MonoBehaviour
     - Click on File > Build Settings > Add Open Scenes > Build.
     - Execute the exe to run the game.
     - Alt-f4 to exit the game.
+
+## Backup the project
+- To find the project location click on the three dots next to the project in Unity Hub and click on "Show in Explorer."
 - The entire project is a few hundred megabytes, but most of the memory is taken up by the Library folder.
     - To reduce the project size you can delete the Library folder (Unity will rebuild that folder once the project is opened again).
 
@@ -72,4 +75,5 @@ public class PlayerController : MonoBehaviour
 <div align="center"><b>
   <a href="Software.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="2-Camera.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
