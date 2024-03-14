@@ -6,6 +6,13 @@
     - Scripted mouse camera (follow in-between player and mouse)
     - Cinemachine (Unity plugin)
     - Minimap (render texture)
+- Examples:
+    - Basic first-person shooter camera ([Counter-Strike](https://www.youtube.com/watch?v=bTDJQYV5Q58))
+    - Hyper-realistic first-person shooter camera ([Unrecord](https://www.youtube.com/watch?v=IK76q13Aqt0))
+    - Third-person camera ([Tomb Raider](https://www.youtube.com/watch?v=vBCeSQSCrqY))
+    - Top-down camera ([Age of Empires](https://www.youtube.com/watch?v=5TnynE3PuDE))
+    - 2D/3D mix ([FEZ](https://www.youtube.com/watch?v=lrEsNI0aCPk))
+    - Camera as a gameplay mechanic ([Viewfinder](https://www.youtube.com/watch?v=crteKROYkHM))
 
 ## Open the project
 - If you download the project from the previous exercise...
