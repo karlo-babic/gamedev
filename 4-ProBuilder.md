@@ -24,6 +24,11 @@
 - Repeat the process to create walls (using the Cube shape) and doors (using the Door shape). Assemble rooms and an exit out of the base.
 - Use the New Poly Shape feature in the ProBuilder window to create custom shapes within the base.
 - Organize all created shapes under a new empty GameObject named "Spawn Base" in the hierarchy.
+- To fix the invisible door sides:
+    - Double-click on a door prefab to open it.
+    - At the top of the scene view select Edge Selection tool.
+    - Hold Ctrl key and click on two edges you want to connect with a face (edges on the top of the doors).
+    - In the ProBuilder window click on "Bridge Edges".
 - Apply colors to the shapes:
     - Double-click on the desired prefab to open it.
     - In the ProBuilder window, select "Vertex Colors" and apply the chosen color.
