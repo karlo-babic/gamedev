@@ -73,5 +73,5 @@ The final state should look something like this:
 <div align="center"><b>
   <a href="2-Camera.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
-  <a href="3-ProBuilder.html" style="font-size:64px; text-decoration:none"> < </a>
+  <a href="4-ProBuilder.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>

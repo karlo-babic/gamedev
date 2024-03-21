@@ -239,5 +239,5 @@ Final state:
 <div align="center"><b>
   <a href="1-Init.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
-  <a href="3-Terrain.html" style="font-size:64px; text-decoration:none"> < </a>
+  <a href="3-Terrain.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
