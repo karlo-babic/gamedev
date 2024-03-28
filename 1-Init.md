@@ -1,4 +1,4 @@
-# 1. Init
+# 1. Init: project setup
 - [Manual: Unity's interface](https://docs.unity3d.com/2021.3/Documentation/Manual/UsingTheEditor.html)
 
 ## New project

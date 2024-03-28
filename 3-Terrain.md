@@ -1,4 +1,4 @@
-# 3. Terrain
+# 3. Terrain creation: Terrain Tools plugin
 - [Unity Packages: Terrain Tools](https://docs.unity3d.com/Packages/com.unity.terrain-tools@4.0/manual/getting-started-with-terrain-tools.html)
     - [Tutorial](https://www.youtube.com/watch?v=smnLYvF40s4)
 - This section delves into terrain creation using the Terrain Tools plugin.

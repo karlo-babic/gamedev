@@ -1,4 +1,4 @@
-# 4. ProBuilder
+# 4. Map construction: ProBuilder plugin
 - [ProBuilder](https://unity.com/features/probuilder)
 - [Unity Packages: ProBuilder](https://docs.unity3d.com/Packages/com.unity.probuilder@4.0/manual/index.html)
     - [Tutorials](https://www.youtube.com/@unity/search?query=Probuilder)
@@ -34,12 +34,146 @@
     - In the ProBuilder window, select "Vertex Colors" and apply the chosen color.
     - Return to the scene by clicking the back button in the hierarchy window.
 - To prepare for interior lighting and darken the space:
-    - Create a Plane covering the entire base (representing the ceiling) using the New Shape feature in ProBuilder.
+    - Create a Plane covering the entire base (representing the ceiling) using the New Shape feature in ProBuilder. Rename it to "CeilingForShadow".
     - One side of that plane is transparent, we want that side to look up: in the Inspector set the Plane's Y scale to -1.
     - In the Mesh Renderer component of the Plane set property Cast Shadows to "Two Sided".
 
 The final state could look something like this:
 ![](https://i.imgur.com/wr6noLR.png)
+
+## Upstairs
+- To create an upper floor (upstairs), we will require stairs or a lift.
+- Construct stairs shape using ProBuilder:
+    - Set shadow casting to "Two Sided" to resolve light line issues its shadow.
+    - To enable player walking up the steps: lower the height of each step or include an invisible ramp (collider) for smooth ascent.
+- Temporarily disable CeilingForShadow GameObject.
+- Organize all shapes from the ground floor (0th floor) under a newly created empty GameObject named "Floor 0."
+- Duplicate floor tiles from the ground floor and reposition them for the 1st floor:
+    - Remove tiles covering the stairs.
+    - Fill in missing floor sections around the stairs.
+- Set the layer of floor tiles on the 1st floor to "Ground" for aim target raycasting.
+- Organize all shapes from the 1st floor under a newly created empty GameObject named "Floor 1."
+
+### Upstairs visibility
+- There are two primary methods to determine if the player is on the upper floor:
+    - Based on the player's Y position.
+    - Checking if the player is within a collider placed on the 1st floor.
+- Create a new C# script and attach it to the Spawn Base GameObject.
+- Below is the script using the player's Y position to identify if they are on the 1st floor:
+    - Set the Floor 1 and Player fields for the script component in the Base Spawn GameObject.
+
+```c#
+using UnityEngine;
+
+public class FloorVisibility : MonoBehaviour
+{
+    public GameObject player; // Reference to the player GameObject
+    public GameObject floor1; // Reference to the parent GameObject representing the upper floor
+
+    void Update()
+    {
+        if (IsPlayerOnFloor1())
+            floor1.SetActive(true);
+        else
+            floor1.SetActive(false);
+    }
+
+    bool IsPlayerOnFloor1()
+    {
+        // Check if the player's Y position is greater than the upper floor's Y position
+        return player.transform.position.y > 10;
+    }
+}
+```
+
+- The second approach involves using colliders to detect the player's presence on the 1st floor or stairs.
+- Create a cube and adjust its position and scale to cover the entire 1st floor area:
+    - Disable its Mesh Renderer component and enable the "Is Trigger" field (we do not want the player to collide with the cube, only trigger it).
+- Repeat the process for a cube positioned on the stairs.
+- Group these cubes under a parent empty GameObject named "Floor1Trigger."
+- The script below checks if the player's position is within one of these colliders:
+
+```c#
+using UnityEngine;
+
+public class FloorVisibility : MonoBehaviour
+{
+    public GameObject player; // Reference to the player GameObject
+    public GameObject floor1; // Reference to the parent GameObject representing the upper floor
+    public GameObject floor1Trigger; // Reference to the parent GameObject containing all the triggers for the upper floor
+
+    void Update()
+    {
+        if (IsPlayerOnFloor1())
+            floor1.SetActive(true);
+        else
+            floor1.SetActive(false);
+    }
+
+    bool IsPlayerOnFloor1()
+    {
+        // Get all colliders under the floor1Trigger GameObject
+        Collider[] colliders = floor1Trigger.GetComponentsInChildren<Collider>();
+
+        // Check if any of the player's colliders are overlapping with any of the upper floor colliders
+        foreach (Collider collider in colliders)
+        {
+            if (collider.bounds.Contains(player.transform.position))
+                return true;
+        }
+        return false;
+    }
+}
+```
+
+- Optionally, instead of deactivating objects on the 1st floor, we might want to disable their rendering:
+
+```c#
+using UnityEngine;
+
+public class FloorVisibility : MonoBehaviour
+{
+    public GameObject player; // Reference to the player GameObject
+    public GameObject floor1; // Reference to the parent GameObject representing the upper floor
+    public GameObject floor1Trigger; // Reference to the parent GameObject containing all the triggers for the upper floor
+
+    void Update()
+    {
+        if (IsPlayerOnFloor1())
+            SetFloorVisibility(floor1, true);
+        else
+            SetFloorVisibility(floor1, false);
+    }
+
+    bool IsPlayerOnFloor1()
+    {
+        // Get all colliders under the floor1Trigger GameObject
+        Collider[] colliders = floor1Trigger.GetComponentsInChildren<Collider>();
+
+        // Check if any of the player's colliders are overlapping with any of the upper floor colliders
+        foreach (Collider collider in colliders)
+        {
+            if (collider.bounds.Contains(player.transform.position))
+                return true;
+        }
+        return false;
+    }
+
+    void SetFloorVisibility(GameObject floor, bool visible)
+    {
+        // Get all renderers in the floor object
+        Renderer[] renderers = floor.GetComponentsInChildren<Renderer>();
+
+        // Set visibility for each renderer
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = visible;
+        }
+    }
+}
+```
+
+- Rename "CeilingForShadow" GameObject to "CeilingForShadow0," duplicate it, and rename the copy to "CeilingForShadow1." Reposition the copy appropriately for the 1st-floor ceiling and place each ceiling in the corresponding parent GameObject (Floor 0 or Floor 1).
 
 ---
 

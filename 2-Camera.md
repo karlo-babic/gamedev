@@ -1,4 +1,4 @@
-# 2. Camera
+# 2. Camera movement: player and mouse following
 - [Manual: Camera component](https://docs.unity3d.com/2021.3/Documentation/Manual/class-Camera.html)
 - Here, we will cover multiple ways to implement camera movement:
     - Basic player camera (as Player child)
