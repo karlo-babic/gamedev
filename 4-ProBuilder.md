@@ -173,6 +173,78 @@ public class FloorVisibility : MonoBehaviour
 }
 ```
 
+- Currently, we hide the 1st floor visually, but it's still there when the player is on the ground floor.
+    - However, there's a problem: the crosshair raycast hits the 1st floor tiles even when the player is downstairs.
+    - To fix this, we can change the 1st floor's layer depending on where the player is.
+    - First, group all 1st floor tiles under a new parent object named "Floor1Tiles."
+    - The script below changes the layer of each tile depending on the player's position (in the new method `SetFloorLayer`):
+
+```c#
+using UnityEngine;
+
+public class FloorVisibility : MonoBehaviour
+{
+    public GameObject player; // Reference to the player GameObject
+    public GameObject floor1; // Reference to the parent GameObject representing the upper floor
+    public GameObject floor1Trigger; // Reference to the parent GameObject containing all the triggers for the upper floor
+    public GameObject floor1Tiles; // Reference to the parent GameObject representing the floor tiles
+
+    void Update()
+    {
+        if (IsPlayerOnFloor1())
+        {
+            SetFloorVisibility(floor1, true);
+            SetFloorLayer(floor1Tiles, "Ground");
+        }
+        else
+        {
+            SetFloorVisibility(floor1, false);
+            SetFloorLayer(floor1Tiles, "Default");
+        }
+    }
+
+    bool IsPlayerOnFloor1()
+    {
+        // Get all colliders under the floor1Trigger GameObject
+        Collider[] colliders = floor1Trigger.GetComponentsInChildren<Collider>();
+
+        // Check if any of the player's colliders are overlapping with any of the upper floor colliders
+        foreach (Collider collider in colliders)
+        {
+            if (collider.bounds.Contains(player.transform.position))
+                return true;
+        }
+        return false;
+    }
+
+    void SetFloorVisibility(GameObject floor, bool visible)
+    {
+        // Get all renderers in the floor object
+        Renderer[] renderers = floor.GetComponentsInChildren<Renderer>();
+
+        // Set visibility for each renderer
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = visible;
+        }
+    }
+
+    // Function to change the layer of all child objects under a specified parent GameObject
+    public void SetFloorLayer(GameObject floorTiles, string layerName)
+    {
+        // Find the layer index based on the layer name
+        int layerIndex = LayerMask.NameToLayer(layerName);
+
+        // Iterate through all child objects of the specified parent GameObject
+        foreach (Transform child in floorTiles.transform)
+        {
+            // Change the layer of each child object to the specified layer
+            child.gameObject.layer = layerIndex;
+        }
+    }
+}
+```
+
 - Rename "CeilingForShadow" GameObject to "CeilingForShadow0," duplicate it, and rename the copy to "CeilingForShadow1." Reposition the copy appropriately for the 1st-floor ceiling and place each ceiling in the corresponding parent GameObject (Floor 0 or Floor 1).
 
 ---
@@ -180,4 +252,5 @@ public class FloorVisibility : MonoBehaviour
 <div align="center"><b>
   <a href="3-Terrain.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="5-PlayerInteraction.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
