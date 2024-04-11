@@ -100,8 +100,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Apply force for movement
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+        // Update player position
+        transform.Translate(moveDirection * moveSpeed * Time.fixedDeltaTime, Space.World);
 
         // Rotate the player to face the crosshair
         Vector3 lookDirection = crosshair.position - transform.position;
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         if (lookDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.fixedDeltaTime * rotateSpeed);
         }
     }
 }
@@ -204,8 +204,8 @@ public class ButtonController : MonoBehaviour
             // Check if the player is close to the button game object
             if (IsPlayerNearButton())
             {
-                // Trigger door-opening event
-                OpenDoor();
+                // Call a method on the door object to open it
+                door.GetComponent<DoorController>().OpenDoor();
             }
         }
     }
@@ -213,12 +213,6 @@ public class ButtonController : MonoBehaviour
     bool IsPlayerNearButton()
     {
         // YOUR CODE HERE
-    }
-
-    void OpenDoor()
-    {
-        // Call a method on the door object to open it
-        door.GetComponent<DoorController>().OpenDoor();
     }
 }
 ```
@@ -278,4 +272,5 @@ public class DoorController : MonoBehaviour
 <div align="center"><b>
   <a href="4-ProBuilder.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="6-Physics.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>

@@ -8,3 +8,4 @@
 3. [Terrain creation: Terrain Tools plugin](3-Terrain.md)
 4. [Map construction: ProBuilder plugin](4-ProBuilder.md)
 5. [Player interaction: interacting with the environment](5-PlayerInteraction.md)
+6. [Physics: forces and materials](6-Physics.md)
