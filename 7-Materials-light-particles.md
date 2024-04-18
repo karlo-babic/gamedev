@@ -37,19 +37,6 @@
     - You will maybe have to run the game for the reflection to update to the new skybox.
 
 ## Lights
-- Before we add lights, we have to make it so it is darker inside the base.
-    - Activate "CeilingForShadow0" if it is not active currently (it should be located in the Floor 0 in the scene hierarchy).
-    - Open Window > Rendering > Lighting and in the tab "Environment":
-        - Set Environment Lighting: Intensity Multiplier to 0.
-        - Set Environment Reflections: Intensity Multiplier to a lower value.
-        - Add fog.
-- Create a new GameObject > Light > Spotlight.
-    - Set it on the ceilling looking down and test various values (such as: Range, Spot Angle, Color, Intensity, ...).
-    - Set multiple such light sources around the base.
-    - Attach one to the player (player's torchlight).
-- We can make one of those lights flicker:
-    - Attach the following script to a light source.
-
 - Adjust the scene's lighting to create a darker ambiance within the base:
     - Activate the "CeilingForShadow0" GameObject if it's not already active (located within the Floor 0 hierarchy).
     - In the Unity editor, navigate to Window > Rendering > Lighting > Environment.
@@ -99,11 +86,6 @@ public class SpotlightFlicker : MonoBehaviour
 ```
 
 ## Particles
-- Here we will add particles to the malfunctioning/flickering light.
-- Create a new GameObject > Effects > Particle System.
-- Place it as a child of the flickering light and position it at its location.
-- Modify various values so the particles fall down randomly, like sparks.
-
 - In this section, we'll enhance the malfunctioning/flickering light effect with particles.
     - Start by creating a new GameObject and selecting Effects > Particle System.
     - Make this particle system a child of the flickering light and position it accordingly.
