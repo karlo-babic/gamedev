@@ -81,6 +81,7 @@ public class BarrelTriggerController : MonoBehaviour
     }
 ```
 
+- Test various PlayerController "move speed" values, and Rigidbody "drag" values.
 - Test various friction values for the ice and sand materials until you're satisfied with the player's movement on those surfaces.
     - Slope handling for player movement will be addressed in the next section.
 
@@ -138,4 +139,5 @@ public class BarrelTriggerController : MonoBehaviour
 <div align="center"><b>
   <a href="5-PlayerInteraction.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="7-Materials-light-particles.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>

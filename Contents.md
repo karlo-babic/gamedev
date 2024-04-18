@@ -9,3 +9,4 @@
 4. [Map construction: ProBuilder plugin](4-ProBuilder.md)
 5. [Player interaction: interacting with the environment](5-PlayerInteraction.md)
 6. [Physics: forces and materials](6-Physics.md)
+7. [Materials, light, and particles](7-Materials-light-particles.md)
