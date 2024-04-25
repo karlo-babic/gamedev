@@ -16,7 +16,7 @@
         }
 ```
 
-- Create a new script "Shooting".
+- Create a new script "Shooting" and attach it to the Player GameObject.
     - The Shoot method in this script casts a ray from the player in the looking direction (bullet path).
 
 ```c#
@@ -41,12 +41,6 @@ public class Shooting : MonoBehaviour
             Debug.Log("Hit " + hit.collider.gameObject.name);
         }
     }
-
-    // Draw the raycast for visualization
-    private void OnDrawGizmos()
-    {
-        Debug.DrawRay(transform.position, (crosshair.position - transform.position) * shootRange, Color.red);
-    }
 }
 ```
 
@@ -57,20 +51,17 @@ public class Shooting : MonoBehaviour
 - Create a plane in the scene and apply the bullet hole material to it.
     - Resize it, disable its collider, and ensure it doesn't cast shadows.
 - Move the plane to the Prefabs folder and remove it from the scene (we will instantiate it as bullet hole decals).
-- In the Shooting.cs script, instantiate the decal using `InstantiateDecal(hit.point, hit.normal, hit.transform);` when the raycast hits an object.
-- The InstantiateDecal method positions the bullet hole at the point where the raycast hits and rotates it to align with the surface:
+- In the Shooting.cs script, instantiate the decal using `InstantiateDecal(hit.point, hit.normal, hit.transform);` when the raycast hits an object (declare `public GameObject decalPrefab;` and set the decal prefab from the inspector).
+    - The InstantiateDecal method positions the bullet hole at the point where the raycast hits and rotates it to align with the surface:
 
 ```c#
     void InstantiateDecal(Vector3 position, Vector3 normal, Transform hitTransform)
     {
-        // Instantiate the decal prefab
-        GameObject decal = Instantiate(decalPrefab, position, Quaternion.identity);
-
         // Determine the rotation to align with the surface
         Quaternion rotation = Quaternion.FromToRotation(Vector3.up, normal);
 
-        // Apply the rotation to the decal
-        decal.transform.rotation = rotation;
+        // Instantiate the decal prefab
+        GameObject decal = Instantiate(decalPrefab, position, rotation);
 
         // Adjust the decal's position slightly to prevent z-fighting
         decal.transform.position += normal * 0.01f;
@@ -143,14 +134,11 @@ public class Shooting : MonoBehaviour
 
     void InstantiateDecal(Vector3 position, Vector3 normal, Transform hitTransform)
     {
-        // Instantiate the decal prefab
-        GameObject decal = Instantiate(decalPrefab, position, Quaternion.identity);
-
         // Determine the rotation to align with the surface
         Quaternion rotation = Quaternion.FromToRotation(Vector3.up, normal);
 
-        // Apply the rotation to the decal
-        decal.transform.rotation = rotation;
+        // Instantiate the decal prefab
+        GameObject decal = Instantiate(decalPrefab, position, rotation);
 
         // Adjust the decal's position slightly to prevent z-fighting
         decal.transform.position += normal * 0.01f;
@@ -358,6 +346,21 @@ public class HealthSystem : MonoBehaviour
     }
 }
 ```
+
+- In ShotController.cs modify the TakeDamage method to call the TakeDamage method in HealthSystem:
+
+```c#
+    void TakeDamage()
+    {
+        HealthSystem healthSystem = GetComponent<HealthSystem>();
+        if (healthSystem != null)
+        {
+            healthSystem.TakeDamage(25);
+        }
+    }
+```
+
+- If you do not want decals to appear on the enemy, instantiate decals only if the GameObject that was hit by the raycast doesn't have the Tag "Character": `!hit.collider.gameObject.CompareTag("Character")` (in Shooting.cs).
 
 <div align="center"><b>
   <a href="7-Materials-light-particles.html" style="font-size:64px; text-decoration:none"> < </a>
