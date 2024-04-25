@@ -85,15 +85,16 @@ public class SpotlightFlicker : MonoBehaviour
 }
 ```
 
+![](https://i.imgur.com/0WmgJLQ.png)
+
 ## Particles
 - In this section, we'll enhance the malfunctioning/flickering light effect with particles.
     - Start by creating a new GameObject and selecting Effects > Particle System.
     - Make this particle system a child of the flickering light and position it accordingly.
     - Adjust the particle system settings to simulate falling particles randomly, resembling sparks. Experiment with parameters like emission rate, lifetime, speed, size, and color to achieve the desired effect.
 
-![](https://i.imgur.com/0WmgJLQ.png)
-
 <div align="center"><b>
   <a href="6-Physics.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="8-Shooting.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
