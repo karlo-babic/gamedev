@@ -10,4 +10,4 @@
 5. [Player interaction: interacting with the environment](5-PlayerInteraction.md)
 6. [Physics: forces and materials](6-Physics.md)
 7. [Materials, light, and particles](7-Materials-light-particles.md)
-7. [Shooting](8-Shooting.md)
+8. [Shooting](8-Shooting.md)
