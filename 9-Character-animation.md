@@ -3,7 +3,7 @@
 - Examples:
     - [Player animation tutorial playlist](https://www.youtube.com/playlist?list=PLwyUzJb_FNeTQwyGujWRLqnfKpV-cj-eO)
     - [Procedural (spider) animation tutorial](https://www.youtube.com/watch?v=swYBGqXtHEY)
-    - Procedural animation in [Rain world](https://www.youtube.com/watch?v=sVntwsrjNe4) and [Synthetic Selection](https://www.youtube.com/watch?v=iNXzOuc9UWo)
+    - Procedural animation in [Rain World](https://www.youtube.com/watch?v=sVntwsrjNe4) and [Synthetic Selection](https://www.youtube.com/watch?v=iNXzOuc9UWo)
 
 ## Preparation
 - Obtain animation assets from [Mixamo](https://www.mixamo.com/): search for animations in the Animations tab and 3D models in the Characters tab.
