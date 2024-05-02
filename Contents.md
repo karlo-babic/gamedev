@@ -11,3 +11,4 @@
 6. [Physics: forces and materials](6-Physics.md)
 7. [Materials, light, and particles](7-Materials-light-particles.md)
 8. [Shooting](8-Shooting.md)
+9. [Character animation](9-Character-animation.md)

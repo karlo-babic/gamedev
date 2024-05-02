@@ -365,4 +365,5 @@ public class HealthSystem : MonoBehaviour
 <div align="center"><b>
   <a href="7-Materials-light-particles.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="9-Character-animation.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
