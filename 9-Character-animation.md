@@ -36,6 +36,7 @@
 - Create a transition from "Any State" to the Fire state (and add a new trigger parameter: "fire"). Use this parameter as the condition for the transition.
     - This transition allows the state machine to switch to the Fire state regardless of the current animation state.
     - In the transition settings, set the transition offset to 0.25 to synchronize the firing animation with the trigger activation.
+    - In script, set this trigger when the player shoots: `animator.SetTrigger("fire");`.
 - Add a transition from Fire to Exit (looping the state machine back to the Entry state).
 
 ![](https://i.imgur.com/3yA7dcC.png)
@@ -60,7 +61,8 @@
 - Double click on the Blend Tree to open it.
     - Click on the Blend Tree node.
     - In the inspector, add two motions: Walking and Running.
-    - Set the threshold on the Running motion to be 6.5. This value represents approximately the maximum speed the player moves at, although it may vary depending on your implementation.
+    - Set the threshold on the Running motion to be 6.5 (you first have to disable "Automate Threshold").
+        - This value represents approximately the maximum speed the player moves at, although it may vary depending on your implementation.
 - Now, the player character will be animated accordingly based on the speed at which they move. However, this setup currently only accounts for forward motion.
 
 ### 2D Blend Tree and float parameters velocityX and velocityY
@@ -76,6 +78,7 @@
 - You can move the points around.
     - Blue points indicate favored velocities for animations, while the red point represents the current velocity in both x and y directions.
 - Set the x and y velocity in the script. The velocity should be relative to the look direction.
+    - You will have to have acess to the `lookDirection` variable. You can declare it outside the FixedUpdate method.
 
 ```c#
 Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
