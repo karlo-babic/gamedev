@@ -12,3 +12,5 @@
 7. [Materials, light, and particles](7-Materials-light-particles.md)
 8. [Shooting](8-Shooting.md)
 9. [Character animation](9-Character-animation.md)
+10. [Procedural generation](10-Procedural-generation.md)
+11. [Shaders: shader graph](11-Shaders.md)
