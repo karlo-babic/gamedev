@@ -93,4 +93,5 @@ animator.SetFloat("velocityY", relativeVelocity.z);
 <div align="center"><b>
   <a href="8-Shooting.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="10-Procedural-generation.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
