@@ -61,7 +61,7 @@
 #### Depth: color
 - **Lerp** node mixes two values, such as colors in this instance.
     - Create two Color variables in Shader Graph: ShallowWaterColor and DeepWaterColor.
-    - Assign both values in the water material inspector (darker blue for deeper water and brighter blue for shallower water).
+    - Assign both values in the water material inspector (darker blue for deeper water and brighter blue for shallower water, set their alphas as well in the color picker).
 ![](https://i.imgur.com/BVU933q.png)
 ![](https://i.imgur.com/usgYPXS.png)
 
