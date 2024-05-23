@@ -14,3 +14,5 @@
 9. [Character animation](9-Character-animation.md)
 10. [Procedural generation](10-Procedural-generation.md)
 11. [Shaders: shader graph](11-Shaders.md)
+12. [Navigation: NavMesh](12-Navigation.md)
+13. [User interface](13-User-interface.md)
