@@ -48,5 +48,5 @@ public class EnemyNavigation : MonoBehaviour
 <div align="center"><b>
   <a href="11-Shaders.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
-  <a href="13-User-interface.html" style="font-size:64px; text-decoration:none"> < </a>
+  <a href="13-User-interface.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
