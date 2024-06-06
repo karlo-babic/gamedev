@@ -58,4 +58,5 @@ public class MainMenu : MonoBehaviour
 <div align="center"><b>
   <a href="12-Navigation.html" style="font-size:64px; text-decoration:none"> < </a>
   <a href="Contents.html" style="font-size:64px; text-decoration:none"> ^ </a>
+  <a href="14-Wrapping-up.html" style="font-size:64px; text-decoration:none"> > </a>
 </b></div>
