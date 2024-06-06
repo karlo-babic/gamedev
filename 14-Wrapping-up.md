@@ -14,14 +14,6 @@
     - Tutorial: https://www.youtube.com/watch?v=fB0P0C_3sPU
 
 ## Audio
-- Add the "Audio Source" component to the weapon.
-    - Attach the appropriate audio clip to the "AudioClip" field.
-    - Disable the "Play On Awake" field.
-- In the Shooting.cs script:
-    - Declare `public AudioSource shootAudioSource;`
-        - Set that variable from the inspector to the audio source on the weapon.
-    - Add line `shootAudioSource.Play();` to the Shoot() method.
-
 - Add the "Audio Source" component to the weapon (which we want to produce the shooting sound).
     - Attach the appropriate audio clip to the "AudioClip" field.
     - Disable the "Play On Awake" field.
