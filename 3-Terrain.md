@@ -22,13 +22,13 @@
 - To create new terrain:
     - Navigate to the top menu bar: Window > Terrain > Terrain Toolbox.
     - In the "Create New Terrain" tab, click on the "Create" button.
-- Adjust the positioning of the Player and Main Camera GameObjects so they are above the terrain. Then, create a cube to serve as a floor for the Player.
-- While the Terrain GameObject is selected in the Inspector, you'll find the "Terrain" component with five tabs: "Create Neighbor Terrains", "Paint Terrain", "Paint Trees", "Paint Details", and "Terrain Settings".
+- Create a cube to serve as a spawn platform for the Player (instead of the previous plane), then adjust the positioning of the Player and Main Camera GameObjects so they are above the cube.
+- While the Terrain GameObject is selected, you'll find (in the Inspector) the "Terrain" component with five tabs: "Create Neighbor Terrains", "Paint Terrain", "Paint Trees", "Paint Details", and "Terrain Settings".
 - In the "Terrain Settings" tab:
     - Set Terrain Width and Length to 200 in the "Mesh Resolution" section.
 - If additional terrain sections are required:
     - Access the "Create Neighbor Terrains" tab.
-    - Click on neighboring regions around the current terrain in the scene.
+    - Click on neighboring regions around the current terrain in the scene (so terrain is all around the player spawn point).
 - Ensure each terrain section is set to the "Ground" layer to enable raycast for crosshair positioning to interact with the terrain.
 - In the "Paint Terrain" tab:
     - Choose "Raise or Lower Terrain" from the drop-down menu.
@@ -36,7 +36,7 @@
     - Sculpt the terrain to create hills or other features.
 - To add high-frequency details, we can use the Sculpt/Noise option (instead of the "Raise or Lower Terrain" option in the "Paint Terrain" tab).
     - In the inspector, set up the Noise Height Tool Settings. Try:
-        - Noise Type: Billow.
+        - Test different noise types (Noise Type field in the terrain component, under Domain Settings).
         - Zoom in and out the Noise Field Preview (to change the scale of the noise).
         - Test different values in Domain Settings.
 
@@ -59,6 +59,7 @@
         - Open the created layer in the Inspector (double click on "Sand" in the Layer Palette list, or click on the created file for that layer in Assets folder):
             - Set size for X and Y to a bigger number (try 20).
             - Set the normal map (to the texture with "nor" in its filename).
+            - Select that normal map from the asset folder and set Texture Type to "Normal map" (in Inspector).
     - Repeat the process for rocky areas, creating a new layer and assigning the rocky texture.
     - If the Layer Palette list is buggy, remove both layers and add the created layers (from Assets folder) as needed.
     - Select the rocky layer and paint the terrain for rocky areas.
