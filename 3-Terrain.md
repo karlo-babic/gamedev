@@ -10,7 +10,8 @@
         - [Landmass Generation tutorial series](https://www.youtube.com/watch?v=wbpMiKiSKm8&list=PLFt_AvWsXl0eBW2EiBtl_sxmDtSgZBxB3)
     - Experimental:
         - [Hyperbolica](https://www.youtube.com/watch?v=VYfWfrk5P7w)
-        - ["Tiny pixels"](https://www.youtube.com/watch?v=CnBIq9KRpcI)
+        - ["Tiny voxels"](https://www.youtube.com/watch?v=CnBIq9KRpcI)
+        - ["4D Minecraft"](https://www.youtube.com/watch?v=u8LMyWcKL_c)
 
 ## Terrain Tools plugin
 - To install the plugin, navigate to the top menu bar and select Window > Package Manager.
