@@ -17,12 +17,12 @@
 ## Building the Spawn Base
 - Constructing the spawn base (where the player spawns) involves creating floors, walls, and doors.
 - For precise positioning of ProBuilder elements, enable Grid Snapping in the scene view by toggling the button with a grid and a magnet at the top left.
-- In the ProBuilder window, click on "New Shape", choose the Plane, and set dimensions to X=10, Y=0.1, Z=10. Rename the resulting GameObject to "Floor 10x10".
+- In the ProBuilder window, click on "New Shape", choose the Plane, and set dimensions to X=10, Y=0, Z=10. Hold shift and click on the floor in the scene to create that object. Rename the resulting GameObject to "Floor 10x10".
     - Move the Plane GameObject from the Hierarchy to a new "Prefabs" folder within the Assets folder.
         - This converts the GameObject into a prefab, enabling global modification of all instances in the scene.
-    - Extend the floor by duplicating and positioning more planes.
-- Repeat the process to create walls (using the Cube shape) and doors (using the Door shape). Assemble rooms and an exit out of the base.
-- Use the New Poly Shape feature in the ProBuilder window to create custom shapes within the base.
+    - Extend the floor by duplicating (Ctrl+d) and positioning more planes.
+- Repeat the process to create walls (using the Cube shape) and doors (using the Door shape). Assemble rooms and an exit out of the base. Convert those GameObjects into Prefabs.
+- Use the New Poly Shape feature in the ProBuilder window to create custom shapes within the base. Convert those GameObjects into Prefabs.
 - Organize all created shapes under a new empty GameObject named "Spawn Base" in the hierarchy.
 - To fix the invisible door sides:
     - Double-click on a door prefab to open it.
@@ -31,6 +31,7 @@
     - In the ProBuilder window click on "Bridge Edges".
 - Apply colors to the shapes:
     - Double-click on the desired prefab to open it.
+    - Select the object in the scene view (first switch back to Object Selection from Edge Selection).
     - In the ProBuilder window, select "Vertex Colors" and apply the chosen color.
     - Return to the scene by clicking the back button in the hierarchy window.
 - To prepare for interior lighting and darken the space:
@@ -43,10 +44,10 @@ The final state could look something like this:
 
 ## Upstairs
 - To create an upper floor (upstairs), we will require stairs or a lift.
-- Construct stairs shape using ProBuilder:
-    - Set shadow casting to "Two Sided" to resolve light line issues its shadow.
-    - To enable player walking up the steps: lower the height of each step or include an invisible ramp (collider) for smooth ascent.
 - Temporarily disable CeilingForShadow GameObject.
+- Construct stairs shape using ProBuilder:
+    - Set shadow casting to "Two Sided" to resolve light line issues in its shadow.
+    - To enable player walking up the steps: lower the height of each step (or increase step count) or include an invisible ramp (collider) for smooth ascent.
 - Organize all shapes from the ground floor (0th floor) under a newly created empty GameObject named "Floor 0."
 - Duplicate floor tiles from the ground floor and reposition them for the 1st floor:
     - Remove tiles covering the stairs.
@@ -115,7 +116,7 @@ public class FloorVisibility : MonoBehaviour
         // Get all colliders under the floor1Trigger GameObject
         Collider[] colliders = floor1Trigger.GetComponentsInChildren<Collider>();
 
-        // Check if any of the player's colliders are overlapping with any of the upper floor colliders
+        // Check if player is inside of any of the upper floor colliders
         foreach (Collider collider in colliders)
         {
             if (collider.bounds.Contains(player.transform.position))
@@ -150,7 +151,7 @@ public class FloorVisibility : MonoBehaviour
         // Get all colliders under the floor1Trigger GameObject
         Collider[] colliders = floor1Trigger.GetComponentsInChildren<Collider>();
 
-        // Check if any of the player's colliders are overlapping with any of the upper floor colliders
+        // Check if player is inside of any of the upper floor colliders
         foreach (Collider collider in colliders)
         {
             if (collider.bounds.Contains(player.transform.position))
@@ -176,7 +177,7 @@ public class FloorVisibility : MonoBehaviour
 - Currently, we hide the 1st floor visually, but it's still there when the player is on the ground floor.
     - However, there's a problem: the crosshair raycast hits the 1st floor tiles even when the player is downstairs.
     - To fix this, we can change the 1st floor's layer depending on where the player is.
-    - First, group all 1st floor tiles under a new parent object named "Floor1Tiles."
+    - First, group all 1st floor tiles (floor planes) under a new parent object named "Floor1Tiles."
     - The script below changes the layer of each tile depending on the player's position (in the new method `SetFloorLayer`):
 
 ```c#
