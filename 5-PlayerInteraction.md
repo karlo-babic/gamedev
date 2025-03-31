@@ -194,7 +194,6 @@ public class ButtonController : MonoBehaviour
 {
     public GameObject door;
     public GameObject player;
-    public float interactionRange = 2f; // The range within which the player can interact with the button
 
     void Update()
     {
