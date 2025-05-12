@@ -103,7 +103,7 @@
 ### Waves
 - In this section, we generate waves by displacing the vertices of the plane on which the water is rendered.
 - **Gradient Noise** node produces smooth noise to augment the current positions of fragments, thereby simulating wave patterns.
-- DisplacementStrangth is a variable you can add to control height of the waves.
+- DisplacementStrength is a variable you can add to control height of the waves.
 ![](https://i.imgur.com/dukrv07.png)
 - A fix so the positions of fragments are modified only in the Y direction.
 ![](https://i.imgur.com/8Tjt2Ot.png)
