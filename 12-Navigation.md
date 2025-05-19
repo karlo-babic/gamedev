@@ -2,7 +2,7 @@
 - This section covers enemy [navigation](https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/NavigationOverview.html): NavMesh, NavMesh Agent, NavMesh Obstacle.
 
 ## Navigation mesh
-- To define surfaces on which an agent can move, create a plane covering the entire floor in the base, and enable the Navigation Static property in the Navigation window > Object tab (with that GameObject selected).
+- To define surfaces on which an agent can move, create a plane covering the entire floor in the base, and enable the Navigation Static property in the Window > AI > Navigation > Object tab (with that GameObject selected).
 - To define objects that agents can't go through, select all of them and in the Navigation window > Object tab enable the Navigation Static property and set Navigation Area to "Not Walkable" (so the surfaces on top of those objects are not defined as walkable areas).
 - In the Navigation window > Bake tab, click on the Bake button. The navigation mesh should now be ready.
 
