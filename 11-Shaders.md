@@ -48,13 +48,16 @@
 ![](https://i.imgur.com/prUWVNx.png)
 
 #### Depth: raw value
-- **Scene Depth** node returns the depth of the current fragment (pixel) in the scene from the camera's perspective. It essentially provides information about how far away an object is from the camera.
-- **Camera** node represents the camera in the scene. The **Far Plane** input of this node specifies the maximum distance from the camera at which objects will be rendered. It defines the far clipping plane of the camera frustum.
-    - **Multiply** node multiplies the scene depth with the far plane value. We are scaling the depth values to normalize them to a more manageable range.
-- **Screen Position** node provides the screen-space position of the current fragment (pixel) being rendered.
-    - **Split** node extracts the A channel of the screen position (which represents the depth of the fragment in screen space).
-- **Subtract** node calculates the difference between the scene depth and the screen depth to determine the depth gradient of the water.
-    - Higher values indicate deeper water and appear brighter.
+To render depth-based effects (such as shoreline foam or darkening water), we must calculate the vertical distance between the water surface and the floor geometry beneath it. We do this by subtracting the depth of the water surface from the depth of the scene.
+
+- **Scene Depth Node:** Returns the distance from the camera to the opaque objects (the floor) in the scene. 
+    - *Note:* Ensure this is set to **Linear01** mode.
+- **Camera Node (Far Plane):** Provides the camera’s maximum render distance. 
+    - **Multiply:** By multiplying the *Linear01 Scene Depth* by the *Camera Far Plane*, we convert the normalized 0–1 depth value into actual world-space units (meters).
+- **Screen Position Node:** Provides the screen-space coordinates of the current fragment. 
+    - **Split (A Channel):** When the node is set to **Raw** mode, the **A** channel contains the depth of the current fragment (the water surface) in world units.
+- **Subtract Node:** We subtract the water surface depth (from the *Screen Position*) from the underwater floor depth (from the *Scene Depth*).
+    - **The Result:** A value representing the exact distance between the surface and the floor. Lower values (near 0) indicate shallow water, while higher values indicate deep water. This result can be used to drive colors, transparency, or foam density.
 ![](https://i.imgur.com/ttsGEbN.png)
 ![](https://i.imgur.com/6zrE199.png)
 
